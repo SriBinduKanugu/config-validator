@@ -1,0 +1,6 @@
+{
+  "DB_HOST": "string",
+  "DB_PORT": "integer",
+  "DB_USER": "string",
+  "DEBUG": "boolean"
+}
