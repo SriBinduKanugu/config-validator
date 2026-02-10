@@ -48,6 +48,8 @@ config-validator/
 ```bash
 python config_checker.py
 
+
+
 ## Example Output
  config.json is valid  
  config.env missing required field: DB_HOST
