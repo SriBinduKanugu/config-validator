@@ -47,26 +47,10 @@ config-validator/
 ## How to Run
 ```bash
 python config_checker.py
-##Example Output
-config.json is valid
-config.env missing required field: DB_HOST
-##Future Enhancements
-
-Add CLI arguments
-
-Add logging
-
-Add unit tests
 
 
 
-## Example Output
- config.json is valid  
- config.env missing required field: DB_HOST
-## Future Enhancements
-- Add CLI arguments
-- Add logging
-- Add unit tests
+
 
 
 
