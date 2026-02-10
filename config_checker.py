@@ -112,3 +112,4 @@ if errors_count > 0:
     sys.exit(1)  # Exit with error code if invalid
 else:
     sys.exit(0)  # Success
+
