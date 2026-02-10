@@ -8,33 +8,33 @@ import sys
 # COMMON VALIDATION FUNCTION
 # -------------------------------
 def validate_config(config, schema, source_name):
-    print(f"\n🧪 Validating configuration from {source_name}...")
+    print(f"\n Validating configuration from {source_name}...")
 
     errors = []
 
-    # 1️⃣ Required keys check
+    # 1️ Required keys check
     for key, expected_type in schema.items():
         if key not in config:
-            errors.append(f"❌ Missing required key: {key}")
+            errors.append(f" Missing required key: {key}")
         else:
             value = str(config[key])
 
-            # 2️⃣ Type validation
+            # 2️ Type validation
             if expected_type == "integer":
                 if not value.isdigit():
-                    errors.append(f"❌ {key} should be INTEGER, but got '{value}'")
+                    errors.append(f"{key} should be INTEGER, but got '{value}'")
             elif expected_type == "boolean":
                 if value.lower() not in ["true", "false"]:
-                    errors.append(f"❌ {key} should be BOOLEAN (true/false), but got '{value}'")
+                    errors.append(f"{key} should be BOOLEAN (true/false), but got '{value}'")
             elif expected_type == "string":
                 if value == "":
-                    errors.append(f"❌ {key} should be STRING, but got empty value")
+                    errors.append(f"{key} should be STRING, but got empty value")
 
     # Print results
     if errors:
         print("\n".join(errors))
     else:
-        print("✅ All keys present with correct types!")
+        print(" All keys present with correct types!")
 
     return len(errors)
 
@@ -51,10 +51,10 @@ def load_schema(schema_file):
             elif ext in [".yaml", ".yml"]:
                 return yaml.safe_load(f)
             else:
-                print("❌ Unsupported schema format!")
+                print(" Unsupported schema format!")
                 sys.exit(1)
     except FileNotFoundError:
-        print(f"❌ Schema file '{schema_file}' not found!")
+        print(f" Schema file '{schema_file}' not found!")
         sys.exit(1)
 
 
@@ -73,7 +73,7 @@ def load_config(file_path):
                     if line == "" or line.startswith("#"):
                         continue
                     if "=" not in line:
-                        print(f"⚠️ Invalid line in .env: {line}")
+                        print(f" Invalid line in .env: {line}")
                         continue
                     key, value = line.split("=", 1)
                     config[key] = value
@@ -82,10 +82,10 @@ def load_config(file_path):
             elif ext in [".yaml", ".yml"]:
                 config = yaml.safe_load(f)
             else:
-                print("❌ Unsupported config format!")
+                print(" Unsupported config format!")
                 sys.exit(1)
     except FileNotFoundError:
-        print(f"❌ Config file '{file_path}' not found!")
+        print(f" Config file '{file_path}' not found!")
         sys.exit(1)
 
     return config
